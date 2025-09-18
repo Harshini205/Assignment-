@@ -1,9 +1,8 @@
 /* ================= Base Styles ================= */
 body {
   font-family: 'Times New Roman', Times, serif;
-  padding-top: 48px; 
   margin: 0;
-  background: linear-gradient(to bottom right, #fffdb6, #feb4ed); 
+  background: linear-gradient(to bottom right, #fffdb6,#feb4ed);
   overflow-x: hidden;
 }
 
@@ -14,7 +13,7 @@ body {
 /* ================= Top Bar ================= */
 .topbar {
   width: 100%;
-  background: #ff7272;   
+  background: #ff7272;
   height: 48px;
   position: fixed;
   top: 0;
@@ -22,24 +21,25 @@ body {
   z-index: 1000;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.logo {
+  color: white;
+  margin: 0;
 }
 
 /* ================= Navbar ================= */
 .navbar {
-  width: 100%;
-  max-width: 1200px;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  padding: 0 20px;
-  position: relative;
 }
 
 .navbar ul {
   list-style: none;
-  display: flex;   
-  gap: 40px;                 
+  display: flex;
+  gap: 40px;
   margin: 0;
   padding: 0;
 }
@@ -49,146 +49,74 @@ body {
 }
 
 .navbar a {
-  font-size: 18px;
+  font-size: 20px;
   text-decoration: none;
   color: #181616;
   font-weight: bold;
   transition: 0.3s;
-  letter-spacing: 2px;
 }
 
 .navbar a:hover {
-  color: #f9feff; 
+  color: #fff;
 }
 
-/* ================= Hamburger Menu ================= */
-#menu-toggle {
+/* ================= Hamburger (checkbox hack) ================= */
+.menu-toggle {
   display: none;
 }
 
 .menu-icon {
-  display: none;
   font-size: 28px;
-  color: #fff;
   cursor: pointer;
-  padding: 8px 12px;
-}
-
-/* Mobile nav */
-@media (max-width: 768px) {
-  .menu-icon {
-    display: block;   /* show hamburger */
-  }
-
-  .navbar ul {
-    display: none;    /* hide menu by default */
-    flex-direction: column;
-    background: #ff7272;
-    position: absolute;
-    top: 48px;        /* dropdown appears below navbar */
-    left: 0;
-    width: 100%;
-    text-align: center;
-  }
-
-  .navbar ul li {
-    border-bottom: 1px solid #fff;
-    padding: 12px 0;
-  }
-
-  /* Show menu when hamburger checked */
-  #menu-toggle:checked ~ ul {
-    display: flex;
-  }
-}
-
-/* ================= Split Section ================= */
-.split {
-  display: flex;
-  min-height: calc(100vh - 48px); 
-  width:100%;
-}
-
-/* Left side */
-.left {
-  flex: 1;
-  background: linear-gradient(to right, #fef5ae, #fed1d0 );
-  padding: 40px;
-  display: flex;               
-  flex-direction: column;       
-  justify-content: center;      
-  align-items: flex-start;         
-  text-align: left;
-}
-
-.left h1 {
-  font-size: 45px;
-  margin-bottom: 30px;
-  letter-spacing: 2px;
-}
-
-.left p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #333;
-  margin-bottom: 30px;
-}
-
-/* Right side */
-.right {
-  flex: 1;
-  background: #eee;
-  padding: 40px;                 
-  position: relative;          
-  overflow: hidden;            
-  display: flex;
-  justify-content: center;
-  align-items: center;        
-}
-
-.right img {
-  width: 100%;                 
-  height: 100%;                
-  object-fit: cover;           
-  border: none;
-  display: block;
-}
-
-/* Button */
-.Click-me {
-  padding: 14px 40px;
-  background: #ff7272;
-  color: #fff;
-  border: none;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.Click-me:hover {
-  background: #dc2525;
-  transform: scale(1.05);
+  color: #181616;
+  display: none;
 }
 
 /* ================= Responsive ================= */
 @media (max-width: 768px) {
-  .split {
+  .navbar ul {
     flex-direction: column;
-  }
-
-  .left, .right {
+    position: absolute;
+    top: 48px;
+    left: 0;
     width: 100%;
-    padding: 20px;
+    background: #ff7272;
+    display: none; /* hidden by default */
+  }
+
+  .navbar ul li {
     text-align: center;
-    align-items: center;
+    border-bottom: 1px solid #fff;
+    padding: 12px 0;
   }
 
-  .left h1 {
-    font-size: 32px;
+  /* Show menu when checkbox checked */
+  .menu-toggle:checked ~ .navbar ul {
+    display: flex;
   }
 
-  .left p {
-    font-size: 14px;
+  .menu-icon {
+    display: block;
   }
+}
+
+/* ================= Content ================= */
+.content {
+  padding: 80px 20px;
+}
+
+.Click-me {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #ff7272;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.Click-me:hover {
+  background: #e55555;
 }
